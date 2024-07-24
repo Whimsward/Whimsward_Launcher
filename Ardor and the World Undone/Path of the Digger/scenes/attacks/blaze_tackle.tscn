@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv58o8vub0uye"]
+
+[ext_resource type="Script" path="res://scripts/blaze_tackle.gd" id="1_dnuyh"]
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="2_d8pth"]
+[ext_resource type="Script" path="res://scripts/HitBox.gd" id="3_pxx2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n857h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
+radius = 9.22915
+
+[node name="BlazeTackle" type="CharacterBody2D"]
+scale = Vector2(1.5, 1)
+collision_layer = 8
+collision_mask = 14
+motion_mode = 1
+script = ExtResource("1_dnuyh")
+type = 2
+
+[node name="HitBox" type="Area2D" parent="."]
+scale = Vector2(1.5, 1.5)
+collision_layer = 8
+collision_mask = 14
+monitoring = false
+script = ExtResource("3_pxx2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(5.65782, -9.08561)
+shape = SubResource("RectangleShape2D_n857h")
+debug_color = Color(0.743997, 0.453363, 0.274543, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.654902, 0.188235, 0.0117647, 0.305882)
+scale = Vector2(0.882215, 1.42437)
+texture = ExtResource("2_d8pth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5.95938, 9.11398)
+shape = SubResource("CircleShape2D_3olpp")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="struck" from="." to="." method="_on_struck"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

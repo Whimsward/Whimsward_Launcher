@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Argument" load_steps=2 format=3 uid="uid://lvud3eievb4f"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_a4rgw"]
+
+[resource]
+script = ExtResource("1_a4rgw")
+number = 1
+subtitle = "Ardor Arrives in the Beleagured Village of Sixwell"
+text = "[Summary Pending]"
+content = Array[ExtResource("1_a4rgw")]([])

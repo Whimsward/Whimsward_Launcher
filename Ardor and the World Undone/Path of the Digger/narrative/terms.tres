@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Thesis" load_steps=6 format=3 uid="uid://3hp0pwvehs24"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="1_y5e80"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="2_tb30v"]
+
+[sub_resource type="Resource" id="Resource_rhbxw"]
+script = ExtResource("2_tb30v")
+number = 1
+subtitle = "Sigil"
+text = ""
+content = Array[ExtResource("2_tb30v")]([])
+
+[sub_resource type="Resource" id="Resource_0otgd"]
+script = ExtResource("2_tb30v")
+number = 1
+subtitle = "Elder Penla"
+text = ""
+content = Array[ExtResource("2_tb30v")]([])
+
+[sub_resource type="Resource" id="Resource_n7ab7"]
+script = ExtResource("2_tb30v")
+number = 0
+subtitle = "Names to Know"
+text = ""
+content = Array[ExtResource("2_tb30v")]([SubResource("Resource_rhbxw"), SubResource("Resource_0otgd")])
+
+[resource]
+script = ExtResource("1_y5e80")
+title = "Terms"
+summary = SubResource("Resource_n7ab7")
+arguments = Array[ExtResource("2_tb30v")]([])

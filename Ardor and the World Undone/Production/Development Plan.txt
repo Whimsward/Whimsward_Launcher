@@ -1,0 +1,9 @@
+1. Make it so Nav_Controls can instruct player movement.
+
+2. Get Phase transitions working.
+
+3. 
+
+Unprioritized (yet):
+	Clean up Scene/Room transition behavior.
+	

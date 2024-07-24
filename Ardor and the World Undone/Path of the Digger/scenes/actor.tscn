@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlxgn0x5ehwig"]
+
+[ext_resource type="Script" path="res://scripts/Actor.gd" id="1_oit76"]
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="2_i14af"]
+[ext_resource type="Script" path="res://scripts/HitBox.gd" id="3_4vgac"]
+[ext_resource type="PackedScene" uid="uid://dupwhfviqcrps" path="res://scenes/components/health_component.tscn" id="4_2gy71"]
+[ext_resource type="PackedScene" uid="uid://dhwqfj3ba3jbd" path="res://scenes/components/move_component.tscn" id="5_k8bg8"]
+[ext_resource type="PackedScene" uid="uid://ce4wum3m48wi2" path="res://scenes/components/user_input_component.tscn" id="6_ir5sj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg511"]
+
+[node name="Actor" type="CharacterBody2D" node_paths=PackedStringArray("hp", "dir", "go", "hit_box")]
+scale = Vector2(0.5, 0.5)
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_oit76")
+hp = NodePath("HP")
+dir = NodePath("UserInputComponent")
+go = NodePath("MoveComponent")
+hit_box = NodePath("HitBox")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i14af")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.36, 6.16)
+shape = SubResource("CircleShape2D_3olpp")
+
+[node name="HitBox" type="Area2D" parent="."]
+scale = Vector2(1.10224, 1.13258)
+collision_mask = 14
+script = ExtResource("3_4vgac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(6.61665, 6.39344)
+shape = SubResource("RectangleShape2D_vg511")
+
+[node name="HP" parent="." instance=ExtResource("4_2gy71")]
+max_health = 10
+current_health = 10
+thematic = Color(0, 0.563816, 0, 1)
+
+[node name="MoveComponent" parent="." instance=ExtResource("5_k8bg8")]
+acceleration = 250
+friction = 300
+max_speed = 500
+
+[node name="UserInputComponent" parent="." instance=ExtResource("6_ir5sj")]
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="death_knell" from="HP" to="." method="_on_health_component_death_knell"]

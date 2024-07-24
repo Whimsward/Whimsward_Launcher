@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://djm3tgjan80wp"]
+
+[ext_resource type="Script" path="res://scripts/water_bolt.gd" id="1_1r2ac"]
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="2_h1ayd"]
+[ext_resource type="Script" path="res://scripts/HitBox.gd" id="3_563uh"]
+[ext_resource type="PackedScene" uid="uid://bidjq35c01wxa" path="res://scenes/components/target_component.tscn" id="4_unpyi"]
+[ext_resource type="PackedScene" uid="uid://dhwqfj3ba3jbd" path="res://scenes/components/move_component.tscn" id="5_r7di1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
+radius = 9.22915
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n857h"]
+
+[node name="WaterBolt" type="CharacterBody2D" node_paths=PackedStringArray("go", "act")]
+scale = Vector2(0.2, 0.2)
+collision_layer = 8
+collision_mask = 14
+motion_mode = 1
+script = ExtResource("1_1r2ac")
+go = NodePath("MoveComponent")
+act = NodePath("TargetComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.14, 3.244, 23.244, 1)
+scale = Vector2(0.882215, 1.42437)
+texture = ExtResource("2_h1ayd")
+region_rect = Rect2(11, 16, 103, 95)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5.95938, 9.11398)
+shape = SubResource("CircleShape2D_3olpp")
+
+[node name="HitBox" type="Area2D" parent="."]
+scale = Vector2(2.5, 2.5)
+collision_layer = 8
+collision_mask = 6
+monitoring = false
+script = ExtResource("3_563uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(5.65782, -9.08561)
+shape = SubResource("RectangleShape2D_n857h")
+debug_color = Color(0.511926, 0.574268, 0.169418, 0.42)
+
+[node name="TargetComponent" parent="." instance=ExtResource("4_unpyi")]
+
+[node name="MoveComponent" parent="." instance=ExtResource("5_r7di1")]
+acceleration = 500
+friction = 600
+max_speed = 1200
+thematic = Color(0.0066998, 0.218194, 0.940391, 1)
+
+[connection signal="struck" from="." to="." method="_on_struck"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

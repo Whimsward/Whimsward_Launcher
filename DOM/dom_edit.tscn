@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://dad8jubrotopm"]
+
+[ext_resource type="CodeHighlighter" uid="uid://b0c2ew4lsq28k" path="res://DOM/DOM_highlighter.tres" id="1_611hy"]
+
+[node name="DOMEdit" type="CodeEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "document - /! <- is a document node (and this is a comment node) !/
+	 HTML element /! element node !/ [attribute] /!attribute node !/ :
+		 
+parsing symbols:
+	\" - \" <- Conduit: denotes a node connection to a child node.
+		document - head /! declares a document node and an element node with the name \"head\" !/
+
+	[attr] <- Attribution Brackets: enclose attribute declarations between node declaration and conduit
+		html [lang : en] - head /! declares an element \"html\" with attribute language whose value is English !/
+
+	|str| <- Text Gates: indicate the entirety of the enclosed text as a single String
+		head - title - |My Title| /! declares an element \"head\" with child \"title\" where
+			\"title\" has a child text node \"My Title\"
+
+	node ; <- Terminal: denotes that what follows is a sibling of the previous node and not a child.
+		body - h1 - |A Heading|; a[href : |url-string|] - |unlike those other headings|;;;
+		is the same as:
+		body -
+			h1 -
+				|A Heading|;
+				a[href : |url-string|] -  |unlike those other headings|;
+			;
+		;
+		is the same as:
+		<body>
+			<h1>A Heading <a href=\"url-string\">unlike those other headings</a></h1>
+		</body>
+	
+
+<html>
+	<head>
+		<title>My Title</title>
+	</head>
+	<body>
+		<h1>A heading <a href=\"url-string\">unlike those other headings</a></h1>
+	</body>
+</html>
+
+html -
+	head -
+		title - |My Title|;
+	;
+	body -
+		h1 - |A heading|; a[href : url-string] - |unlike those other headings|;;;
+	;
+;
+"
+syntax_highlighter = ExtResource("1_611hy")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://berftu0hsvxfk"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/The Half-Remembered Wood/Half-RememberedWood_Game.gd" id="1_4e8j7"]
+
+[node name="RunHRW" type="Node"]
+script = ExtResource("1_4e8j7")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dsmuw1rr8aoru"]
+
+[node name="Start" type="Window"]
+title = "StartLauncher"
+
+[node name="Start" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Start"

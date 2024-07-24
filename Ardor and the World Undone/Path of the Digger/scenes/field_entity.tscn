@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq7td47p5pc4i"]
+
+[ext_resource type="Script" path="res://scripts/FieldEntity.gd" id="1_anooc"]
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="2_xnhhi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
+
+[node name="FieldEntity" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_anooc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xnhhi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3olpp")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

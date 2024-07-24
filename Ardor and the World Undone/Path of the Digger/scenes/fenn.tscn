@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://fden547qx1xs"]
+
+[ext_resource type="Script" path="res://scripts/Actor.gd" id="1_gnqig"]
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="2_837dq"]
+[ext_resource type="Script" path="res://scripts/HitBox.gd" id="3_iwftj"]
+[ext_resource type="PackedScene" uid="uid://dupwhfviqcrps" path="res://scenes/components/health_component.tscn" id="4_3vgne"]
+[ext_resource type="PackedScene" uid="uid://dhwqfj3ba3jbd" path="res://scenes/components/move_component.tscn" id="5_xfidg"]
+[ext_resource type="PackedScene" uid="uid://ce4wum3m48wi2" path="res://scenes/components/user_input_component.tscn" id="6_71roo"]
+[ext_resource type="PackedScene" uid="uid://di3fbt85vsjxq" path="res://scenes/components/attack_component.tscn" id="7_wk6ql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg511"]
+
+[node name="Fenn" type="CharacterBody2D" node_paths=PackedStringArray("hp", "dir", "go", "hit_box", "atk")]
+scale = Vector2(0.45, 0.45)
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_gnqig")
+hp = NodePath("HP")
+dir = NodePath("UserInputComponent")
+go = NodePath("MoveComponent")
+hit_box = NodePath("HitBox")
+atk = NodePath("AttackComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.915502, 0.509871, 0.587781, 1)
+texture = ExtResource("2_837dq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.36, 6.16)
+shape = SubResource("CircleShape2D_3olpp")
+
+[node name="HitBox" type="Area2D" parent="."]
+scale = Vector2(1.10224, 1.13258)
+collision_mask = 14
+script = ExtResource("3_iwftj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(6.61665, 6.39344)
+shape = SubResource("RectangleShape2D_vg511")
+debug_color = Color(0.757966, 0.439529, 0.315507, 0.42)
+
+[node name="HP" parent="." instance=ExtResource("4_3vgne")]
+max_health = 10
+current_health = 10
+thematic = Color(0, 0.563816, 0, 1)
+
+[node name="MoveComponent" parent="." instance=ExtResource("5_xfidg")]
+acceleration = 400
+friction = 600
+max_speed = 800
+
+[node name="UserInputComponent" parent="." instance=ExtResource("6_71roo")]
+
+[node name="AttackComponent" parent="." instance=ExtResource("7_wk6ql")]
+atk_1 = "res://scenes/attacks/blaze_tackle.tscn"
+atk_2 = "res://scenes/attacks/slash.tscn"
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="death_knell" from="HP" to="." method="_on_health_component_death_knell"]

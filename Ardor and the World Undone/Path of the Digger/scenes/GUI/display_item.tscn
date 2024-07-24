@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://uxmfsej31dqo"]
+
+[ext_resource type="Script" path="res://scripts/display_item.gd" id="1_p26ap"]
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="2_qda7b"]
+
+[node name="DisplayItem" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_p26ap")
+
+[node name="ItemEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+placeholder_text = "Subject Name Here"
+expand_to_text_length = true
+
+[node name="ItemTrigger" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+icon = ExtResource("2_qda7b")
+
+[node name="ItemLabel" type="Label" parent="."]
+layout_mode = 2
+
+[connection signal="text_submitted" from="ItemEdit" to="." method="_on_item_edit_text_submitted"]
+[connection signal="button_up" from="ItemTrigger" to="." method="_on_item_trigger_button_up"]

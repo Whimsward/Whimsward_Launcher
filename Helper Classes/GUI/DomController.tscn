@@ -1,0 +1,149 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnrh7xy7ol0nx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40u4s"]
+bg_color = Color(0.2714, 0.59, 0.31388, 0.215686)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dylp"]
+
+[node name="DOMController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CurrentDocName" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Document Name"
+
+[node name="ViewDivider" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainDisplay" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ViewDivider"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrentElemName" type="Label" parent="PanelContainer/VBoxContainer/ViewDivider/MainDisplay"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Current Element Name"
+
+[node name="CurrentElemContent" type="TextEdit" parent="PanelContainer/VBoxContainer/ViewDivider/MainDisplay"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/background_color = Color(0.0352941, 0.160784, 0.133333, 0.694118)
+placeholder_text = "Current Element Content..."
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/ViewDivider"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SideBarPanel" type="PanelContainer" parent="PanelContainer/VBoxContainer/ViewDivider"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_40u4s")
+
+[node name="AttrSidebar" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ViewDivider/SideBarPanel"]
+layout_mode = 2
+size_flags_horizontal = 2
+alignment = 1
+
+[node name="AttrInput" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ViewDivider/SideBarPanel/AttrSidebar"]
+layout_mode = 2
+alignment = 1
+
+[node name="Attr" type="Label" parent="PanelContainer/VBoxContainer/ViewDivider/SideBarPanel/AttrSidebar/AttrInput"]
+layout_mode = 2
+
+[node name="AttrEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/ViewDivider/SideBarPanel/AttrSidebar/AttrInput"]
+layout_mode = 2
+placeholder_text = "New Attribute"
+expand_to_text_length = true
+
+[node name="Add" type="Button" parent="PanelContainer/VBoxContainer/ViewDivider/SideBarPanel/AttrSidebar/AttrInput"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add"
+
+[node name="AttrInput2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ViewDivider/SideBarPanel/AttrSidebar"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Attr" type="Label" parent="PanelContainer/VBoxContainer/ViewDivider/SideBarPanel/AttrSidebar/AttrInput2"]
+layout_mode = 2
+
+[node name="AttrEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/ViewDivider/SideBarPanel/AttrSidebar/AttrInput2"]
+layout_mode = 2
+placeholder_text = "New Attribute"
+expand_to_text_length = true
+
+[node name="Add" type="Button" parent="PanelContainer/VBoxContainer/ViewDivider/SideBarPanel/AttrSidebar/AttrInput2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add"
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/ViewDivider"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="DOMTree" type="Tree" parent="PanelContainer/VBoxContainer/ViewDivider"]
+visible = false
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NavButtons" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PreviousButton" type="Button" parent="PanelContainer/VBoxContainer/NavButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Previous"
+
+[node name="PrevNode" type="Label" parent="PanelContainer/VBoxContainer/NavButtons"]
+layout_mode = 2
+text = "Previous Node Name"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/NavButtons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2dylp")
+
+[node name="NextNode" type="Label" parent="PanelContainer/VBoxContainer/NavButtons"]
+layout_mode = 2
+text = "Next Node Name"
+
+[node name="NextButton" type="Button" parent="PanelContainer/VBoxContainer/NavButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next"
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/NavButtons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2dylp")
+
+[node name="ShowDOMTree" type="Button" parent="PanelContainer/VBoxContainer/NavButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Show
+Tree"

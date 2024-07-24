@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://okq5y3hjb22k"]
+
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="1_hitc4"]
+[ext_resource type="Texture2D" uid="uid://cvqqhxrdru7er" path="res://scenes/attacks/slash.svg" id="2_p370m"]
+
+[node name="ResourcesBar" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Health" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+stretch_margin_left = 40
+stretch_margin_right = 40
+texture_under = ExtResource("1_hitc4")
+texture_progress = ExtResource("2_p370m")
+tint_under = Color(0.801924, 0.188651, 0.411611, 1)
+tint_progress = Color(0.332289, 0.713955, 0.436765, 1)
+
+[node name="Sigil" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 2
+nine_patch_stretch = true
+stretch_margin_left = 50
+stretch_margin_right = 50
+texture_under = ExtResource("2_p370m")
+texture_progress = ExtResource("1_hitc4")

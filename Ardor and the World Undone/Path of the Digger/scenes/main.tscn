@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://iasledd5ixgm"]
+
+[ext_resource type="PackedScene" uid="uid://dfbss8ef0iic5" path="res://scenes/arena.tscn" id="1_3j2wq"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_5joka"]
+[ext_resource type="PackedScene" uid="uid://bblpj613febua" path="res://scenes/GUI/stat_card.tscn" id="2_pqj3i"]
+[ext_resource type="PackedScene" uid="uid://uxmfsej31dqo" path="res://scenes/GUI/display_item.tscn" id="3_jve6b"]
+
+[node name="Main" type="Node" node_paths=PackedStringArray("arena")]
+script = ExtResource("1_5joka")
+arena = NodePath("Arena")
+
+[node name="Arena" parent="." instance=ExtResource("1_3j2wq")]
+actor = "res://scenes/fenn.tscn"
+
+[node name="StatCard" parent="." instance=ExtResource("2_pqj3i")]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -162.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" parent="StatCard" index="0"]
+size_flags_horizontal = 0
+
+[node name="PlayerNumber" parent="StatCard/VBoxContainer/Display" index="0" instance=ExtResource("3_jve6b")]
+layout_mode = 2
+
+[node name="PlayerHealthDisplay" parent="StatCard/VBoxContainer" index="2"]
+size_flags_vertical = 1
+
+[connection signal="player_died" from="Arena" to="." method="_on_arena_player_died"]
+[connection signal="respawned" from="StatCard" to="." method="_on_stat_card_respawned"]
+
+[editable path="Arena"]
+[editable path="StatCard"]

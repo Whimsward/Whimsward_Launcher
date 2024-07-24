@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Argument" load_steps=2 format=3 uid="uid://cnt4myndtlf81"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_cn2j0"]
+
+[resource]
+script = ExtResource("1_cn2j0")
+number = 0
+tag = ""
+subtitle = ""
+text = ""
+content = Array[ExtResource("1_cn2j0")]([])

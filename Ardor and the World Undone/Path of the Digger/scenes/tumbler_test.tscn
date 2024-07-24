@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bopkkw0nqvuke"]
+
+[ext_resource type="PackedScene" uid="uid://dyojgenpsbhne" path="res://scenes/GUI/Field_UI.tscn" id="1_h7j46"]
+[ext_resource type="PackedScene" uid="uid://d0s8xkylf12ra" path="res://scenes/wall.tscn" id="2_tjq0y"]
+
+[node name="TumblerTest" type="Node"]
+
+[node name="FieldUI" parent="." instance=ExtResource("1_h7j46")]
+
+[node name="Wall" parent="." instance=ExtResource("2_tjq0y")]
+position = Vector2(0, 520)
+rotation = -1.5708
+scale = Vector2(4.08, 1)
+
+[node name="Wall2" parent="." instance=ExtResource("2_tjq0y")]
+position = Vector2(716, 517)
+rotation = 1.5708
+scale = Vector2(4.08, 1)
+
+[node name="Wall3" parent="." instance=ExtResource("2_tjq0y")]
+position = Vector2(365, -4)
+scale = Vector2(4.08, 1)
+
+[node name="Wall4" parent="." instance=ExtResource("2_tjq0y")]
+position = Vector2(383, 883)
+rotation = 3.14159
+scale = Vector2(4.08, 1)
+
+[node name="Wall5" parent="." instance=ExtResource("2_tjq0y")]
+position = Vector2(383, 1039)
+rotation = 3.14159
+scale = Vector2(4.08, 1)

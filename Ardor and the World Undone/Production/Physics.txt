@@ -1,0 +1,36 @@
+In the real world, a [[newton : N]] is the unit of force:
+	1 kg * m/s^2
+So, 1 newton is the force to move 1 kilogram of mass 1 meter+=1 per second.
+How could this translate to godot's 2D platform physics?
+
+Why would I bother?
+I have three player characters planned in the ultimate scope of this game. Each
+I want to have move differently from the other.
+- Ardor should have floatier movements, including a longer jump span that suggests 
+her drifting in the air like a leaf or feather on the wind.
+- Fenn should have explosive movements, more force over less time.
+- Will should have basically the middle ground.
+
+It's that Fenn part that gets me there. To properly model the way I want the 
+characters to behave on screen, I think I need to model the way their mass interacts
+with the force of gravity.
+
+Existing data to be aware of:
+	- 2D gravity is defined as 980 pixels/second^2 by default in godot.
+		- This suggests that my standard unit of distance should be pixels.
+		- It also suggests that each pixel should be considered roughly the equivalent
+		distance to a centimeter (1/100 of a meter).
+	- velocity is a property in godot calculated in terms of pixels per second 
+	in a direction.
+
+Not factored therein:
+	- No objects in the physics engine actually have defined weight by default*.
+	- A unit of weight would need to be derived from a unit of mass * gravity.
+	- Wikipedia states that an average human exerts about 608 N (via gravity) on
+	earth (via a human weighing, on average, 62 kg)
+
+So new movement data resource?
+var [gram | unit of mass] = #could be by pixels in drawn object, but how much material
+var [pixond |unit of acceleration] : change in velocity over time = 1 pixel/second^2
+var [gowton | unit of force] = 1 gram * 1 pixond
+var [stone | unit of weight] = gram * gravity : (980) gowton

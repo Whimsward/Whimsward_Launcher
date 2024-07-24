@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://13vc2v5o7sg4"]
+
+[ext_resource type="Script" path="res://Helper Classes/LauncherMain.gd" id="1_slag2"]
+[ext_resource type="Script" path="res://Helper Classes/GameRegister.gd" id="2_45ub6"]
+[ext_resource type="PackedScene" uid="uid://dsmuw1rr8aoru" path="res://Helper Classes/GUI/startwindow.tscn" id="2_phvmo"]
+[ext_resource type="PackedScene" uid="uid://lq0akjteilem" path="res://Launcher/main_menu.tscn" id="3_8ctwa"]
+
+[sub_resource type="Resource" id="Resource_ekbc2"]
+script = ExtResource("2_45ub6")
+
+[node name="Main" type="Node"]
+script = ExtResource("1_slag2")
+game_reg = SubResource("Resource_ekbc2")
+
+[node name="Start" parent="." instance=ExtResource("2_phvmo")]
+initial_position = 2
+
+[node name="MainMenu" parent="." instance=ExtResource("3_8ctwa")]
+visible = false
+
+[connection signal="button_up" from="Start/Start" to="." method="_on_start_button_up"]
+[connection signal="activated" from="MainMenu/ProjectTabs" to="." method="_on_list_item_activated"]
+
+[editable path="Start"]
+[editable path="MainMenu"]

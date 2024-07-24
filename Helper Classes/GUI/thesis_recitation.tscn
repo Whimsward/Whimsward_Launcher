@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf1wg12aof1xb"]
+
+[ext_resource type="Script" path="res://Helper Classes/GUI/ThesisRecitation.gd" id="1_cvb78"]
+
+[node name="ThesisRecitation" type="VBoxContainer" node_paths=PackedStringArray("title", "summary", "content")]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -303.0
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_cvb78")
+title = NodePath("TitleLabel")
+summary = NodePath("SummaryLabel")
+content = NodePath("ContentLabel")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 2
+
+[node name="SummaryLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="ContentLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "[url=res://Ardor and the World Undone/Path of the Digger/narrative/potd_summary.tres]This is a link?[/url]"
+fit_content = true
+
+[connection signal="meta_clicked" from="SummaryLabel" to="." method="_on_summary_label_meta_clicked"]
+[connection signal="meta_clicked" from="ContentLabel" to="." method="_on_content_label_meta_clicked"]
+[connection signal="meta_hover_ended" from="ContentLabel" to="." method="_on_content_label_meta_hover_ended"]

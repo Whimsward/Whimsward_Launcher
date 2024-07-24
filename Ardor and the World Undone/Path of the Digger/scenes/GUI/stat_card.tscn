@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bblpj613febua"]
+
+[ext_resource type="Script" path="res://scripts/stat_card.gd" id="1_j5xrj"]
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="1_r7s23"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlme0"]
+bg_color = Color(0.34902, 0.67451, 0.592157, 0.345098)
+
+[node name="StatCard" type="PanelContainer" node_paths=PackedStringArray("display")]
+offset_right = 84.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_rlme0")
+script = ExtResource("1_j5xrj")
+display = NodePath("VBoxContainer/Display")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Display" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AddDisplayItem" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/outline_size = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/icon_max_width = 30
+icon = ExtResource("1_r7s23")
+
+[node name="PlayerHealthDisplay" type="TextureProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 10.0
+value = 10.0
+rounded = true
+nine_patch_stretch = true
+texture_progress = ExtResource("1_r7s23")
+
+[node name="RespawnFoes" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Respawn"
+
+[connection signal="button_up" from="VBoxContainer/AddDisplayItem" to="." method="_on_add_display_item_button_up"]
+[connection signal="button_up" from="VBoxContainer/RespawnFoes" to="." method="_on_respawn_foes_button_up"]

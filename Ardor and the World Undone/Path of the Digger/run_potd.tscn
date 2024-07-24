@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://f77k8ak0kn4j"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/PathoftheDigger_Game.gd" id="1_cn14o"]
+[ext_resource type="PackedScene" uid="uid://bf1wg12aof1xb" path="res://Helper Classes/GUI/thesis_recitation.tscn" id="2_wwfx8"]
+
+[node name="RunPotD" type="Node" node_paths=PackedStringArray("start")]
+script = ExtResource("1_cn14o")
+start = NodePath("ThesisRecitation")
+
+[node name="ThesisRecitation" parent="." instance=ExtResource("2_wwfx8")]

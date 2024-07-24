@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://dldfrlqp70syo"]
+
+[ext_resource type="Script" path="res://scripts/charger.gd" id="1_4ydpd"]
+[ext_resource type="PackedScene" uid="uid://dwy1xtg6pkyc5" path="res://scenes/attacks/attack.tscn" id="2_5qob6"]
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="3_rm4uh"]
+[ext_resource type="Script" path="res://scripts/HitBox.gd" id="4_4pg8t"]
+[ext_resource type="PackedScene" uid="uid://dupwhfviqcrps" path="res://scenes/components/health_component.tscn" id="5_tylss"]
+[ext_resource type="PackedScene" uid="uid://dhwqfj3ba3jbd" path="res://scenes/components/move_component.tscn" id="6_t4sc7"]
+[ext_resource type="PackedScene" uid="uid://bidjq35c01wxa" path="res://scenes/components/target_component.tscn" id="7_0bdme"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2sdh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dgb6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pi4ct"]
+
+[node name="Charger" type="CharacterBody2D" node_paths=PackedStringArray("hp", "go", "act", "hit_box", "attacks")]
+scale = Vector2(0.3, 0.3)
+collision_layer = 2
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_4ydpd")
+hp = NodePath("HP")
+go = NodePath("MoveComponent")
+act = NodePath("TargetComponent")
+hit_box = NodePath("HitBox")
+attacks = [NodePath("PopOff")]
+
+[node name="PopOff" parent="." instance=ExtResource("2_5qob6")]
+visible = false
+scale = Vector2(1.84789, 1.2693)
+collision_mask = 3
+type = 2
+friendly_fire = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(31.351, 0.217, 0.241, 0.847)
+texture = ExtResource("3_rm4uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.2307, 6.00043)
+shape = SubResource("CircleShape2D_3olpp")
+debug_color = Color(0.715175, 0.944283, 0.874277, 0.42)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 13
+monitorable = false
+script = ExtResource("4_4pg8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(7.10137, 7.14672)
+shape = SubResource("RectangleShape2D_c2sdh")
+
+[node name="HP" parent="." instance=ExtResource("5_tylss")]
+thematic = Color(0.989844, 3.94672e-06, 7.70092e-07, 1)
+
+[node name="MoveComponent" parent="." instance=ExtResource("6_t4sc7")]
+acceleration = 250
+friction = 300
+max_speed = 500
+
+[node name="TargetComponent" parent="." instance=ExtResource("7_0bdme")]
+
+[node name="DetectRange" type="Area2D" parent="."]
+scale = Vector2(53.4737, 43.8063)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRange"]
+shape = SubResource("CircleShape2D_0dgb6")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+scale = Vector2(11.6534, 10.3681)
+shape = SubResource("CircleShape2D_pi4ct")
+debug_color = Color(0.580877, 0.127542, 0.192897, 0.42)
+
+[connection signal="death_knell" from="HP" to="." method="_on_health_component_death_knell"]
+[connection signal="body_entered" from="DetectRange" to="." method="_on_detect_range_body_entered"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

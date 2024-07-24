@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyojgenpsbhne"]
+
+[ext_resource type="PackedScene" uid="uid://psl1oipo4ovh" path="res://scenes/GUI/field_grid.tscn" id="1_npf6u"]
+[ext_resource type="PackedScene" uid="uid://culh5lra62cam" path="res://scenes/GUI/control_bar.tscn" id="2_lw5j3"]
+[ext_resource type="PackedScene" uid="uid://okq5y3hjb22k" path="res://scenes/GUI/resources_bar.tscn" id="3_ndsaa"]
+
+[node name="FieldUI" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="FieldGrid" parent="." instance=ExtResource("1_npf6u")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ControlBar" parent="." instance=ExtResource("2_lw5j3")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ResourcesBar" parent="." instance=ExtResource("3_ndsaa")]
+layout_mode = 2
+size_flags_horizontal = 4

@@ -1,0 +1,38 @@
+Paradigm {Association,Extension,Dominion,Edification,Separation}
+Aspect {Relation, Intention, Control, Binding, Isolation}
+Medium {Domain,Study,Innate,Collective,Artifact}
+Element {Fire, Lightning, Earth, Water, Void}
+Rite {Spirit, Mind, Will, Body, Parting}
+Violation {Hex,Shot,Strike,Tackle,Slash}
+
+Reconfigure each of the above as Resources.
+Decide if they will contain only the enums or some related helper functions.
+Decide if they will be named enums or unnamed. -- Named
+
+How do you get things like Air or Spectral? Are they expressions of an Aspect?
+They're the result of an Aspect of Binding, where you Bind two different Elements.
+When you Bind two Elements, one carries the Material for the aspect, and the other
+carries the behavior.
+Air, then, is Binding Fire(M) with Lightning(B).
+A Rite can hold within it the potential to bestow an Aspect, thus unlocking that
+Aspect as an option for the Entity.
+
+FieldEntity
+--> EntitySprite (Appear)
+	|Texture
+--> EntityCollision (Collide)
+	|CollisionShape
+--> Make
+	|Rites 
+		|Rite/Cost/Motes |Rite/Cadence |Rite/Boons
+	|Alignment Scores
+--> Channel
+	|Medium #The nature of the Entity's access to/interaction with magic.
+	|Motes
+		|Mote/Weight |Mote/Element
+	|Capacity #Number of Motes the Channel can hold
+
+But the secret is, if I can't get the "economy" of magic sorted out, I think that the
+infrastructure of these as components is useful to me.
+Rites are essentially Strategy pattern components or policies that extend the objects
+they're loaded into.

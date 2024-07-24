@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfbss8ef0iic5"]
+
+[ext_resource type="PackedScene" uid="uid://d0s8xkylf12ra" path="res://scenes/wall.tscn" id="1_6t832"]
+[ext_resource type="Script" path="res://scripts/arena.gd" id="1_j581h"]
+[ext_resource type="PackedScene" uid="uid://dhx18d1pi4kjf" path="res://scenes/components/spawn_component.tscn" id="3_yjuhv"]
+
+[node name="Arena" type="Node2D" node_paths=PackedStringArray("spawn_comp")]
+script = ExtResource("1_j581h")
+actor = "res://scenes/will.tscn"
+spawn_comp = NodePath("SpawnComponent")
+
+[node name="NorthWall" parent="." instance=ExtResource("1_6t832")]
+position = Vector2(364, 10)
+scale = Vector2(2.68, 1)
+collision_mask = 11
+
+[node name="SouthWall" parent="." instance=ExtResource("1_6t832")]
+position = Vector2(355, 1051)
+scale = Vector2(2.75558, 1)
+collision_mask = 11
+
+[node name="WestWall" parent="." instance=ExtResource("1_6t832")]
+position = Vector2(11, 631)
+rotation = 1.5708
+scale = Vector2(4.7954, 0.871551)
+collision_mask = 11
+
+[node name="EastWall" parent="." instance=ExtResource("1_6t832")]
+position = Vector2(714, 643)
+rotation = -1.5708
+scale = Vector2(4.97985, 1)
+collision_mask = 11
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+position = Vector2(368, 539)
+
+[node name="FoeSpawn" type="Marker2D" parent="."]
+position = Vector2(168, 198)
+
+[node name="FoeSpawn2" type="Marker2D" parent="."]
+position = Vector2(550, 176)
+
+[node name="FoeSpawn3" type="Marker2D" parent="."]
+position = Vector2(207, 856)
+
+[node name="FoeSpawn4" type="Marker2D" parent="."]
+position = Vector2(584, 923)
+
+[node name="FoeSpawn5" type="Marker2D" parent="."]
+position = Vector2(597, 439)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.5, 0.5)
+
+[node name="SpawnComponent" parent="." node_paths=PackedStringArray("spawn_points", "player_spawn") instance=ExtResource("3_yjuhv")]
+foe_type = "res://scenes/foes/charger.tscn"
+spawn_points = [NodePath("../FoeSpawn"), NodePath("../FoeSpawn2"), NodePath("../FoeSpawn3"), NodePath("../FoeSpawn4"), NodePath("../FoeSpawn5")]
+player_spawn = NodePath("../PlayerStart")

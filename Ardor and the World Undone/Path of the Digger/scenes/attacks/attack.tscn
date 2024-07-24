@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwy1xtg6pkyc5"]
+
+[ext_resource type="Script" path="res://scripts/AttackEntity.gd" id="1_l75s5"]
+[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="2_2x2ve"]
+[ext_resource type="Script" path="res://scripts/HitBox.gd" id="3_6nfnd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
+radius = 9.22915
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n857h"]
+
+[node name="Attack" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 15
+motion_mode = 1
+script = ExtResource("1_l75s5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(7.567, 3.243, 1, 1)
+scale = Vector2(0.882215, 1.42437)
+texture = ExtResource("2_2x2ve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5.95938, 9.11398)
+shape = SubResource("CircleShape2D_3olpp")
+
+[node name="HitBox" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 7
+monitoring = false
+script = ExtResource("3_6nfnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(5.65782, -9.08561)
+shape = SubResource("RectangleShape2D_n857h")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
