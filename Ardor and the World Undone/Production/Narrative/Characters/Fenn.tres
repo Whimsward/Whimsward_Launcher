@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="Character" load_steps=8 format=3 uid="uid://c4fr3shyaywn"]
+[gd_resource type="Resource" script_class="Character" load_steps=13 format=3 uid="uid://c4fr3shyaywn"]
 
+[ext_resource type="Script" path="res://Helper Classes/Attack.gd" id="2_0bjuk"]
 [ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="2_hxo7m"]
 [ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="3_gnqh1"]
+[ext_resource type="Texture2D" uid="uid://de647j026sn50" path="res://Ardor and the World Undone/Production/Art/Icons/FennConcept.png" id="3_h1tk1"]
 [ext_resource type="Script" path="res://Helper Classes/Action.gd" id="4_c7vn3"]
 [ext_resource type="Script" path="res://Helper Classes/Character.gd" id="4_o5h0m"]
 [ext_resource type="Script" path="res://Helper Classes/Instructions.gd" id="5_wmcrg"]
+[ext_resource type="Script" path="res://Helper Classes/Mance.gd" id="6_u5khv"]
+[ext_resource type="PackedScene" uid="uid://fden547qx1xs" path="res://Ardor and the World Undone/Path of the Digger/scenes/fenn.tscn" id="8_tf2np"]
+[ext_resource type="Script" path="res://Helper Classes/Move.gd" id="9_iaa8j"]
 
 [sub_resource type="Resource" id="Resource_b5pxr"]
 script = ExtResource("3_gnqh1")
@@ -26,6 +31,8 @@ name = &"Fenn"
 id = 3
 bio = SubResource("Resource_b5pxr")
 attributes = {}
+model = ExtResource("8_tf2np")
+avatar = ExtResource("3_h1tk1")
 instr = SubResource("Resource_tnmtm")
 has_element = false
 has_alignment = false
@@ -38,14 +45,7 @@ ritual = null
 aspect = null
 medium = null
 violation = null
-walk = false
-run = false
-dash = false
-jump = false
-fly = false
-dodge = false
-mance = false
-interact = false
-shove = false
-climb = false
-attack = false
+moves = Array[ExtResource("9_iaa8j")]([])
+acts = Array[ExtResource("4_c7vn3")]([])
+attacks = Array[ExtResource("2_0bjuk")]([])
+mancery = Array[ExtResource("6_u5khv")]([])

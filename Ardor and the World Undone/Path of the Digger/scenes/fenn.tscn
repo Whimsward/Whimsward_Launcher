@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dhwqfj3ba3jbd" path="res://Ardor and the World Undone/Path of the Digger/scenes/components/move_component.tscn" id="5_xfidg"]
 [ext_resource type="PackedScene" uid="uid://di3fbt85vsjxq" path="res://Ardor and the World Undone/Path of the Digger/scenes/components/attack_component.tscn" id="7_wk6ql"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idx2s"]
+radius = 2.83019
+height = 10.3896
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vg511"]
+size = Vector2(5.21038, 8.70036)
 
 [node name="Fenn" type="CharacterBody2D" node_paths=PackedStringArray("hp", "go", "hit_box")]
 collision_mask = 6
@@ -20,12 +23,11 @@ go = NodePath("MoveComponent")
 hit_box = NodePath("HitBox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.915502, 0.509871, 0.587781, 1)
 texture = ExtResource("2_v3xr7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.36, 6.16)
-shape = SubResource("CircleShape2D_3olpp")
+shape = SubResource("CapsuleShape2D_idx2s")
 
 [node name="HitBox" type="Area2D" parent="."]
 scale = Vector2(1.10224, 1.13258)
@@ -33,6 +35,7 @@ collision_mask = 14
 script = ExtResource("3_64bi3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-4.32607e-07, 0.441472)
 scale = Vector2(6.61665, 6.39344)
 shape = SubResource("RectangleShape2D_vg511")
 debug_color = Color(0.757966, 0.439529, 0.315507, 0.42)

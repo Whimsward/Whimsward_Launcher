@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dldfrlqp70syo"]
+[gd_scene load_steps=13 format=3 uid="uid://dldfrlqp70syo"]
 
 [ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/scenes/foes/charger.gd" id="1_4ydpd"]
 [ext_resource type="PackedScene" uid="uid://dwy1xtg6pkyc5" path="res://Ardor and the World Undone/Path of the Digger/scenes/attacks/attack.tscn" id="2_5qob6"]
+[ext_resource type="Script" path="res://Helper Classes/Attack.gd" id="2_vongw"]
 [ext_resource type="Texture2D" uid="uid://ct57lpihog6n4" path="res://icon.svg" id="3_rm4uh"]
 [ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/HitBox.gd" id="4_4pg8t"]
 [ext_resource type="PackedScene" uid="uid://dupwhfviqcrps" path="res://Ardor and the World Undone/Path of the Digger/scenes/components/health_component.tscn" id="5_tylss"]
@@ -16,7 +17,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pi4ct"]
 
-[node name="Charger" type="CharacterBody2D" node_paths=PackedStringArray("hp", "go", "act", "hit_box", "attacks")]
+[node name="Charger" type="CharacterBody2D" node_paths=PackedStringArray("hp", "go", "act")]
 scale = Vector2(0.3, 0.3)
 collision_layer = 2
 collision_mask = 7
@@ -25,8 +26,7 @@ script = ExtResource("1_4ydpd")
 hp = NodePath("HP")
 go = NodePath("MoveComponent")
 act = NodePath("TargetComponent")
-hit_box = NodePath("HitBox")
-attacks = [NodePath("PopOff")]
+attacks = Array[ExtResource("2_vongw")]([null])
 
 [node name="PopOff" parent="." instance=ExtResource("2_5qob6")]
 visible = false

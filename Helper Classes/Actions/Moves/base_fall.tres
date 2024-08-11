@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Fall" load_steps=3 format=3 uid="uid://jkt0v0d37o72"]
+
+[ext_resource type="Script" path="res://Helper Classes/Actions/Moves/move_scripts/Fall.gd" id="1_usrrr"]
+[ext_resource type="Script" path="res://Helper Classes/Action.gd" id="2_6sehj"]
+
+[resource]
+script = ExtResource("1_usrrr")
+vertical = false
+name = ""
+valid_during = Array[ExtResource("2_6sehj")]([])
+base_duration = 0.0
+duration = 0.0

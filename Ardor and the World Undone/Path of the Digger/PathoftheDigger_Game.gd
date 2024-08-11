@@ -7,7 +7,8 @@ extends Game
 @export var set_enc_screen : PanelContainer
 @export var set_thesis : Thesis = preload("res://Ardor and the World Undone/Production/Narrative/path_of_the_digger.tres")
 @export var set_actor : Actor
-@export var vel_label : Label
+@export var set_vel_label : Label
+@export var set_enc_grid : TileMapLayer
 @export_file("*.tscn") var scene
 #endregion
 
@@ -17,21 +18,19 @@ enum Phase {WANDER, PLAN, ACTION}
 		phase = value
 		if value == Phase.WANDER:
 			set_actor.wandering = true
-			enc_grid.hide()
+			set_enc_grid.hide()
 		else:
 			set_actor.wandering = false
-			enc_grid.show()
+			set_enc_grid.show()
 
 @export var current_encounter : Encounter
 
 var move_tile
 
-@onready var enc_grid = $EncounterGridLayer/EncounterGrid
-
 func _ready():
 	print_debug(set_lead.present_verbs())
 	if not current_encounter:
-		current_encounter = enc_grid.encounter
+		current_encounter = set_enc_grid.encounter
 	make_connections()
 	pop_thesis()
 	assert(user_input.directed.is_connected(_on_user_directed),"Connection failed.")
@@ -40,17 +39,27 @@ func _ready():
 func _physics_process(_delta):
 	if phase == Phase.ACTION:
 		lead_go()
-	vel_label.text =  str(set_actor.velocity)+"\n"+str(set_actor.go.Moves.find_key(set_actor.go.move_state)+"\n"+str(set_actor.go.jumps_available))
+	pop_helper_label()
 	if Input.is_action_just_pressed("planshift"):
 		if phase == Phase.PLAN:
 			phase = Phase.WANDER
 		else: phase = Phase.PLAN
 
 
+func pop_helper_label():
+	var subj_name = set_actor.name
+	var mouse_pos = "Mouse Location: "+str(get_viewport().get_mouse_position())
+	var actor_vel = subj_name+" Vel: "+str(set_actor.velocity)
+	var act_move = "Move: "+str(set_actor.go.Moves.find_key(set_actor.go.move_state))+"; "
+	var act_air = "Air: "+str(set_actor.go.Air.find_key(set_actor.go.air_state))
+	var act_jumps = "Jumps :"+str(set_actor.go.jumps_available)
+	set_vel_label.text = mouse_pos+"\n"+subj_name+"\n"+actor_vel+"; "+act_move+act_air+"; "+act_jumps
+
+
 #region Encounter Grid Methods
 ##"Native" function to convert Vector2 [pos] to a position on the EncounterGrid.
 func get_enc_tile(pos : Vector2 = set_actor.position):
-	var conver = enc_grid.local_to_map(pos)
+	var conver = set_enc_grid.local_to_map(pos)
 	return conver
 
 
@@ -62,7 +71,7 @@ func is_valid_tile(vec : Vector2i) -> bool: ##Check if a tile has collision poly
 
 
 func validate_move(vec : Vector2i) -> bool:
-	if is_valid_tile(vec) and is_valid_tile(enc_grid.get_neighbor_cell(vec,TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)):
+	if is_valid_tile(vec) and is_valid_tile(set_enc_grid.get_neighbor_cell(vec,TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)):
 		return true
 	else: return false
 
@@ -71,26 +80,26 @@ func validate_move(vec : Vector2i) -> bool:
 ##Get a move request for the argued direction, then validate it for no collisions
 ##If valid place the select cursor pattern, otherwise call the Grid's invalid feedback
 func encounter_navigate(direction : Vector2):
-	var current = enc_grid.current_sel
+	var current = set_enc_grid.current_sel
 	var req : Vector2i
 	if not current:
 		current = get_enc_tile()
 	#TODO Insert logic to manage move select by mouse
-	req = enc_grid.get_move_request(direction)
+	req = set_enc_grid.get_move_request(direction)
 	if validate_move(req):
-		enc_grid.set_pattern(enc_grid.get_neighbor_cell(current,TileSet.CELL_NEIGHBOR_TOP_SIDE),enc_grid.anti_cursor)
-		enc_grid.place_sel_cursor(req)
+		set_enc_grid.set_pattern(set_enc_grid.get_neighbor_cell(current,TileSet.CELL_NEIGHBOR_TOP_SIDE),set_enc_grid.anti_cursor)
+		set_enc_grid.place_sel_cursor(req)
 	else:
-		enc_grid.invalid()
+		set_enc_grid.invalid()
 
 
 ##Get a move request from the Encounter Grid for argued direction
 ##Validate the move request, then if valid return Grid's track move for the request
 ##Otherwise return null
 func direct_move(direction : Vector2):
-	var req = enc_grid.get_move_request(direction)
+	var req = set_enc_grid.get_move_request(direction)
 	if validate_move(req):
-		return enc_grid.track_move(req)
+		return set_enc_grid.track_move(req)
 	else: 
 		print_debug("Not that one mate!")
 		return null
@@ -105,16 +114,16 @@ func lead_wander(direction : Vector2):
 #TODO Change to instructions in argument
 func lead_go():
 	var target = current_encounter.get_move_target()
-	var local_target = enc_grid.map_to_local(target)
+	var local_target = set_enc_grid.map_to_local(target)
 	var dir = set_actor.position.direction_to(local_target)
 
 	if current_encounter.get_move().is_empty():
-		if not enc_grid.process_move(target, get_enc_tile()):
+		if not set_enc_grid.process_move(target, get_enc_tile()):
 			phase = Phase.PLAN
 			set_enc_screen.refresh_move(current_encounter)
 
 	else:
-		if enc_grid.process_move(target, get_enc_tile()):
+		if set_enc_grid.process_move(target, get_enc_tile()):
 			current_encounter.move_next()
 		phase = Phase.ACTION
 
@@ -171,9 +180,9 @@ func _on_encounter_screen_chose_mance(id):
 
 func _on_encounter_screen_chose_move():
 	var current = get_enc_tile()
-	enc_grid.place_sel_cursor(current)
-	enc_grid.track_move()
-	set_enc_screen.display_move(current_encounter)
+	#set_enc_grid.place_sel_cursor(current)
+	#set_enc_grid.track_move()
+	#set_enc_screen.display_move(current_encounter)
 
 
 func _on_encounter_screen_move_dir(dir : Vector2):
