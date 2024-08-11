@@ -1,1 +1,1 @@
-extends Mance
+class_name Enact extends Mance

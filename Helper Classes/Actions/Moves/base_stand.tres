@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Stand" load_steps=10 format=3 uid="uid://c0l6uoge6s778"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_5jatv"]
+[ext_resource type="Script" path="res://Helper Classes/Actions/Moves/move_scripts/Stand.gd" id="1_qwa5p"]
+[ext_resource type="Script" path="res://Helper Classes/Action.gd" id="2_lca3x"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="2_wugne"]
+[ext_resource type="Script" path="res://Helper Classes/Actions/Attacks/attack_scripts/Shot.gd" id="5_wof5r"]
+[ext_resource type="Script" path="res://Helper Classes/Actions/Moves/move_scripts/Fall.gd" id="6_ta84k"]
+
+[sub_resource type="Resource" id="Resource_3wu86"]
+script = ExtResource("2_wugne")
+title = ""
+arguments = Array[ExtResource("1_5jatv")]([])
+
+[sub_resource type="Resource" id="Resource_8gycr"]
+script = ExtResource("5_wof5r")
+base_damage = 1
+damage = 0
+name = ""
+valid_during = Array[ExtResource("2_lca3x")]([])
+base_duration = 0.0
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_tor3t"]
+script = ExtResource("6_ta84k")
+vertical = false
+name = ""
+valid_during = Array[ExtResource("2_lca3x")]([])
+base_duration = 0.0
+duration = 0.0
+
+[resource]
+resource_name = "Stand"
+script = ExtResource("1_qwa5p")
+vertical = false
+name = "Stand"
+description = SubResource("Resource_3wu86")
+valid_during = Array[ExtResource("2_lca3x")]([SubResource("Resource_8gycr"), SubResource("Resource_tor3t")])
+base_duration = 1.0
+duration = 1.0

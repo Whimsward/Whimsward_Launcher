@@ -8,13 +8,20 @@ class_name Character extends Resource
 
 static var id_count : int = 1
 
+var stand = Stand.new()
 
-@export var name : StringName ##Give the Character a [StringName] for reference
+var fall = Fall.new()
+
+
+enum Roles {LEAD,ALLY,NEUTRAL,PAL,FOE}
+
+@export var name : String ##Give the Character a [String] for reference
 @export var id : int ##Give the Character a unique id, esp. for reference in an Encounter
 
 ##Refer to a [Thesis] with a modular number of [Argument]s for describing various other relevant
 ##info about the Character
 @export var bio : Thesis
+@export var role : Roles
 
 @export var attributes : Dictionary ##Should container references to things like move speed etc.
 
@@ -57,70 +64,70 @@ static var id_count : int = 1
 
 #region Verbs
 @export_group("Verbs")
-@export_subgroup("Move")
-##Used to determine what Movement Actions a character can take
-@export var walk : bool = false:
-	set(value):
-		walk = value
-		if value == true:
-			moves["Walk"] = walk
-@export var run : bool = false:
-	set(value):
-		run = value
-		if value == true:
-			moves["Run"] = run
-@export var dash : bool = false:
-	set(value):
-		dash = value
-		if value == true:
-			moves["Dash"] = dash
-@export var jump : bool = false:
-	set(value):
-		jump = value
-		if value == true:
-			moves["Jump"] = jump
-@export var fly : bool = false:
-	set(value):
-		fly = value
-		if value == true:
-			moves["Fly"] = fly
-@export var dodge : bool = false:
-	set(value):
-		dodge = value
-		if value == true:
-			moves["Dodge"] = dodge
-@export_subgroup("Act")
-##Used to determine what Interactive Actions a character can take
-@export var mance : bool = false:
-	set(value):
-		mance = value
-		if value == true:
-			acts["Mance"] = mance
-@export var interact : bool = false:
-	set(value):
-		interact = value
-		if value == true:
-			acts["Interact"] = interact
-@export var shove : bool = false:
-	set(value):
-		shove = value
-		if value == true:
-			acts["Shove"] = shove
-@export var climb : bool = false:
-	set(value):
-		climb = value
-		if value == true:
-			acts["Climb"] = climb
-@export var attack : bool = false:
-	set(value):
-		attack = value
-		if value == true:
-			acts["Attack"] = attack
-@export_group("")
-#endregion
+@export var moves : Array[Move] = [stand,fall]
+@export var acts : Array[Action]
+@export var attacks : Array[Attack]
+@export var mancery : Array[Mance]
+###Used to determine what Movement Actions a character can take
+#@export var walk : bool = false:
+	#set(value):
+		#walk = value
+		#if value == true:
+			#moves["Walk"] = walk
+#@export var run : bool = false:
+	#set(value):
+		#run = value
+		#if value == true:
+			#moves["Run"] = run
+#@export var dash : bool = false:
+	#set(value):
+		#dash = value
+		#if value == true:
+			#moves["Dash"] = dash
+#@export var jump : bool = false:
+	#set(value):
+		#jump = value
+		#if value == true:
+			#moves["Jump"] = jump
+#@export var fly : bool = false:
+	#set(value):
+		#fly = value
+		#if value == true:
+			#moves["Fly"] = fly
+#@export var dodge : bool = false:
+	#set(value):
+		#dodge = value
+		#if value == true:
+			#moves["Dodge"] = dodge
 
-var moves : Dictionary
-var acts : Dictionary
+##Used to determine what Interactive Actions a character can take
+#@export var mance : bool = false:
+	#set(value):
+		#mance = value
+		#if value == true:
+			#acts["Mance"] = mance
+#@export var interact : bool = false:
+	#set(value):
+		#interact = value
+		#if value == true:
+			#acts["Interact"] = interact
+#@export var shove : bool = false:
+	#set(value):
+		#shove = value
+		#if value == true:
+			#acts["Shove"] = shove
+#@export var climb : bool = false:
+	#set(value):
+		#climb = value
+		#if value == true:
+			#acts["Climb"] = climb
+#@export var attack : bool = false:
+	#set(value):
+		#attack = value
+		#if value == true:
+			#acts["Attack"] = attack
+#@export_group("")
+#endregion
 
 func _init():
 	id = id_count
@@ -144,8 +151,34 @@ func apparate():
 	if model:
 		var instance = model.instantiate()
 		if instance is FieldEntity:
-			instance.char_id = id
-			if instance.go is MoveComponent:
-				var spd = attributes["Speed"] * 100
-				instance.go.max_speed = spd
+			fieldEnt_setup(instance)
+			if instance is Actor:
+				actor_setup(instance)
+			elif instance is Foe:
+				foe_setup(instance)
 		return instance
+
+
+func fieldEnt_setup(instance : FieldEntity):
+	instance.char_id = id
+	if instance.go is MoveComponent:
+		var spd = attributes["Speed"] * 100
+		instance.go.max_speed = spd
+	instance.died.connect(_on_instance_died)
+
+
+func actor_setup(instance : Actor):
+	instance.attacked.connect(_on_instance_attacked)
+
+
+func foe_setup(instance : Foe):
+	#instance.attacked.connect(_on_instance_attacked) #Foes don't signal attacks yet...
+	pass
+
+
+func _on_instance_died(entity):
+	pass
+
+
+func _on_instance_attacked(entity):
+	pass

@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjvw24sm5ueku"]
+
+[ext_resource type="TileSet" uid="uid://bvh05yu7p4twu" path="res://Ardor and the World Undone/Path of the Digger/encounters/grass_and_barrens.tres" id="1_m17wl"]
+[ext_resource type="Script" path="res://Helper Classes/GUI/encounter_grid.gd" id="2_36hge"]
+[ext_resource type="Resource" uid="uid://c2jgrq14hwyx7" path="res://Ardor and the World Undone/Path of the Digger/encounters/departure_from_sixwell.tres" id="3_kgvww"]
+
+[node name="EncounterGrid" type="TileMapLayer"]
+modulate = Color(1, 1, 1, 0.282353)
+tile_map_data = PackedByteArray(0, 0, 18, 0, 26, 0, 0, 0, 9, 0, 1, 0, 0, 0)
+tile_set = ExtResource("1_m17wl")
+script = ExtResource("2_36hge")
+encounter = ExtResource("3_kgvww")
