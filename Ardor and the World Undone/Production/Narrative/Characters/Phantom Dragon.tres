@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://dgy6c33uk7crt"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_15k2w"]
+[ext_resource type="Script" path="res://Helper Classes/Character.gd" id="1_71uvu"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="2_p3bxi"]
+
+[sub_resource type="Resource" id="Resource_sjdwa"]
+script = ExtResource("2_p3bxi")
+title = ""
+arguments = Array[ExtResource("1_15k2w")]([])
+
+[resource]
+script = ExtResource("1_71uvu")
+name = &"Phantom Dragon"
+id = 101
+bio = SubResource("Resource_sjdwa")
+attributes = {}
+has_element = false
+has_alignment = false
+has_rite = false
+has_aspect = false
+has_medium = false
+elemental = null
+paradigmatic = null
+ritual = null
+aspect = null
+medium = null
+violation = null
+walk = false
+run = false
+dash = false
+jump = false
+fly = false
+dodge = false
+mance = false
+interact = false
+shove = false
+climb = false
+attack = false

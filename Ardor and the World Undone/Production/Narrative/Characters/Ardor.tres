@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://dha18lotdb0jp"]
+
+[ext_resource type="Texture2D" uid="uid://c8ef8gh2lcaah" path="res://Ardor and the World Undone/Production/Art/Icons/Simple Ardor.png" id="1_as6jw"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="2_fq5mc"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="3_nkqql"]
+[ext_resource type="Script" path="res://Helper Classes/Character.gd" id="4_8iokv"]
+
+[sub_resource type="Resource" id="Resource_htcvu"]
+script = ExtResource("3_nkqql")
+title = ""
+arguments = Array[ExtResource("2_fq5mc")]([])
+
+[resource]
+script = ExtResource("4_8iokv")
+name = &"Ardor"
+id = 1
+bio = SubResource("Resource_htcvu")
+attributes = {}
+avatar = ExtResource("1_as6jw")
+has_element = false
+has_alignment = false
+has_rite = false
+has_aspect = true
+has_medium = true
+elemental = null
+paradigmatic = null
+ritual = null
+aspect = 1
+medium = 2
+violation = 2
+walk = false
+run = false
+dash = false
+jump = false
+fly = false
+dodge = false
+mance = false
+interact = false
+shove = false
+climb = false
+attack = false

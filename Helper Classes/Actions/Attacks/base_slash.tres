@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Slash" load_steps=3 format=3 uid="uid://bbsah4ak5fp5m"]
+
+[ext_resource type="Script" path="res://Helper Classes/Actions/Attacks/attack_scripts/Slash.gd" id="1_7c7dm"]
+[ext_resource type="Script" path="res://Helper Classes/Action.gd" id="2_ew541"]
+
+[resource]
+script = ExtResource("1_7c7dm")
+name = ""
+valid_during = Array[ExtResource("2_ew541")]([])
+base_duration = 0.0
+duration = 0.0

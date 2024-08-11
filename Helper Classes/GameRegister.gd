@@ -3,6 +3,13 @@ class_name GameRegister extends Resource
 
 enum Games {GAME_1 = 1,GAME_2,GAME_3,GAME_4,GAME_5,GAME_6,GAME_7,GAME_8,GAME_9,GAME_10}
 
+@export var games : Dictionary = {
+	"Twenty Games" : challenges,
+	"Path of the Digger" : "res://Ardor and the World Undone/Path of the Digger/run_potd.tscn",
+	"Half-Remembered Wood" : "res://Ardor and the World Undone/The Half-Remembered Wood/run_hrw.tscn",
+	"DOM" : "res://DOM/dom_edit.tscn"
+}
+
 const challenges : Dictionary = {
 	"Game 1" : {"Pong" : "", "Flappy Bird" : ""},
 	"Game 2" : {"Breakout" : "", "Jetpack Joyride" : ""},
@@ -16,35 +23,27 @@ const challenges : Dictionary = {
 	"Game 10" : {"Minecraft":"","Portal":""},
 }
 
-var the_world_undone = "res://Ardor and the World Undone/"
-var path_of_the_digger = "res://Ardor and the World Undone/Path of the Digger/"
-var half_remembered_wood = "res://Ardor and the World Undone/The Half-Remembered Wood/"
-var run_potd = load("res://Ardor and the World Undone/Path of the Digger/run_potd.tscn")
-var run_hrw = load("res://Ardor and the World Undone/The Half-Remembered Wood/run_hrw.tscn")
-
-var dom = "res://DOM"
-var dom_edit = load("res://DOM/dom_edit.tscn")
-
-
-#return the stringified version of Games
+##Return the [String]ified version of [Game]s
 func sel(index : int) -> String:
 	return Games.find_key(index).capitalized()
 
 
-#use sel() to read the value of a key in challenges with an index
+##Call [GameRegister.sel()] to read the value of a key in challenges with an index
 func read_challenges(index : int):
 	return challenges[sel(index)]
 
 
+##Instantiate a [DirAccess] [Object].
 static func read_files(path : String):
 	var files = DirAccess.get_files_at(path)
 	return files
 
 
+##Call to filter out [invalid_strings] from the the result of a [Call] to [DirAccess.get_directories_at]
+##a given [path].
 static func constrain_directories(path : String,invalid_strings : PackedStringArray):
 	var result = DirAccess.get_directories_at(path).duplicate()
 	for dir in result:
 		if invalid_strings.find(dir) >= 0:
 			result.remove_at(result.find(dir))
 	return result
-

@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_o40gu"]
 
 [resource]
+resource_name = "Sigil"
 script = ExtResource("1_o40gu")
-number = 0
-tag = ""
-subtitle = ""
-text = ""
-content = Array[ExtResource("1_o40gu")]([])
+gloss = {
+"Tag": "Sigil",
+"Text": "An artifact produced by the mancery of the Elders of Sixwell. On returning from tracing the Path of the Digger with a Sigil, a youth of Sixwell is considered to have reached adulthood."
+}

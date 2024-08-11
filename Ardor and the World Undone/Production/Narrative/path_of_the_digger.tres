@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Thesis" load_steps=3 format=3 uid="uid://d1sv0ja8yl03j"]
+[gd_resource type="Resource" script_class="Thesis" load_steps=4 format=3 uid="uid://d1sv0ja8yl03j"]
 
 [ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="1_8br2b"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_re0mn"]
 [ext_resource type="Resource" uid="uid://drbmj6hjpo6vd" path="res://Ardor and the World Undone/Path of the Digger/narrative/potd_summary.tres" id="2_lhnge"]
 
 [resource]
+resource_name = "Path of the Digger"
 script = ExtResource("1_8br2b")
 title = "Path of the Digger"
 summary = ExtResource("2_lhnge")
-arguments = Array[Resource("res://Ardor and the World Undone/Production/Classes/Argument.gd")]([])
+arguments = Array[ExtResource("1_re0mn")]([])

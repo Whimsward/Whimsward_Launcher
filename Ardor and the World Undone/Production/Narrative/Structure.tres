@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Thesis" load_steps=5 format=3 uid="uid://bah7qkfbrxu3w"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_f8006"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="2_8idvq"]
+
+[sub_resource type="Resource" id="Resource_bpl47"]
+script = ExtResource("1_f8006")
+gloss = {
+"Beat": "One portion of a measure.",
+"Measure": "A turn in the Encounter system.",
+"Signature": "The number of \"Beats\" in a \"Measure.\"",
+"Tag": "Encounter",
+"Text": "Broken into turns called \"Measures.\""
+}
+
+[sub_resource type="Resource" id="Resource_tqpty"]
+resource_name = "Structure Summary"
+script = ExtResource("1_f8006")
+gloss = {
+"Tag": "Summary",
+"Text": "Using Thesis and Argument to express structural thoughts about the game."
+}
+
+[resource]
+resource_name = "Structure"
+script = ExtResource("2_8idvq")
+title = "Structure"
+summary = SubResource("Resource_tqpty")
+arguments = Array[ExtResource("1_f8006")]([SubResource("Resource_bpl47")])

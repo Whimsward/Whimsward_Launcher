@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Hex" load_steps=6 format=3 uid="uid://bravr330kdl8h"]
+
+[ext_resource type="Script" path="res://Helper Classes/Actions/Attacks/attack_scripts/Hex.gd" id="1_gain5"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_wkxgo"]
+[ext_resource type="Script" path="res://Helper Classes/Action.gd" id="2_bm2qm"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="2_bqxae"]
+
+[sub_resource type="Resource" id="Resource_cf7fs"]
+script = ExtResource("2_bqxae")
+title = ""
+arguments = Array[ExtResource("1_wkxgo")]([])
+
+[resource]
+script = ExtResource("1_gain5")
+element = 0
+cost = 1
+base_damage = 1
+damage = 0
+name = "Hex"
+description = SubResource("Resource_cf7fs")
+valid_during = Array[ExtResource("2_bm2qm")]([])
+base_duration = 1.0
+duration = 1.0

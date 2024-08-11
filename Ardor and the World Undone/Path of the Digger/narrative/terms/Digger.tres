@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Argument" load_steps=2 format=3 uid="uid://bm4xwq4w3a6ft"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_5swjc"]
+
+[resource]
+resource_name = "Digger"
+script = ExtResource("1_5swjc")
+gloss = {
+"Tag": "Digger",
+"Text": "A kind of large creature possessing (or consisting of) an innate abundance of Earth \"humors.\"The Digger of Sixwell has a long-standing arrangement with the village to help sustain them against the Barrens, but it is somewhat seasonally drawn away by instinct."
+}

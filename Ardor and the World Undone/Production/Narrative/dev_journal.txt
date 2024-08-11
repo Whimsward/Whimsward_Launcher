@@ -1,0 +1,115 @@
+Thesis and Argument
+An Argument is basically just a less efficient Dictionary, so I should really just figure out
+how to handle it as a Dictionary.
+
+The biggest thing is figuring out how to make a Dictionary readable to a set of controls and
+after that editable by related controls.
+
+Making a "gloss" variable in the current Argument class in order to test this.
+
+Trying to create a set of labels and line-edits from a Dictionary is always going to produce
+the list alphabetically, not in the order I create the Dictionary in...
+
+MoveCursor appears when you click "Move"
+It moves when you provide input.
+It moves on the tilegrid.
+
+
+
+
+
+
+
+
+
+
+I'm going to remove the text of the old Argument into this file:
+
+@export var number : int
+@export var subtitle : String #use for heading titles or very simple content
+@export_multiline var text : String #use for initial description or internal paragraphs
+@export var content : Array[Argument] #allows for nesting subarguments
+
+static func construct_arg(sub : String,num := 0,txt := "") -> Argument:
+	var new_arg = Argument.new()
+	new_arg.subtitle = sub
+	new_arg.number = num
+	new_arg.text = txt
+	return new_arg
+
+
+func amend(txt : String, variant):
+	if variant == subtitle:
+		subtitle = txt
+	if variant == text:
+		text = txt
+
+
+func refer(ref : String,add_as_subarg : bool = false):
+	var result
+	if subtitle.contains(ref):
+		if text:
+			print_debug(ref, " has this text: ",text)
+			result = text
+		else:
+			result = subtitle
+	elif add_as_subarg:
+		var new_arg = add_subarg(ref)
+		result = new_arg.subtitle
+	print_debug(result,self.subtitle)
+	return result
+
+
+func deep_dive(ref : String,add_as_subarg : bool = false):
+	var result
+	for A in content:
+		if A.refer(ref):
+			result = A.refer(ref)
+			break
+	if not result:
+		if add_as_subarg:
+			result = add_subarg(ref)
+			return result
+		else:
+			return null
+
+
+func add_subarg(sub : String, num := 0, txt := "") -> Argument:
+	var sub_arg = Argument.construct_arg(sub, num, txt)
+	content.append(sub_arg)
+	return sub_arg
+
+##Call seeker functions on all of the Thesis' Arguments.
+func search(ref : String,add_arg : bool = false):
+	var arg_list = [summary]
+	var result
+	if summary.refer(ref):
+		result = summary.refer(ref)
+	elif summary.deep_dive(ref):
+		result = summary.deep_dive(ref)                                                                             
+	else:
+		for A in arguments:
+			if A.refer(ref):
+				result = A
+			elif A.deep_dive(ref):
+				result = A.deep_dive(ref)
+	if not result:
+		if add_arg:
+			result = Argument.construct_arg(ref,1)
+			arguments.append(result)
+			return result.subtitle
+		else:
+			return null
+	return result
+
+
+func construct_arg_list() -> Array[Argument]:
+	var arg_list = [summary]
+	for arg in arguments:
+		arg_list.append(arg)
+	return arg_list
+
+##Search the Terms Thesis for reference to the string.
+func search_terms(ref : String,add_term : bool = false):
+	var result = terms.search(ref,add_term)
+	return result

@@ -1,4 +1,4 @@
-class_name Attack extends FieldEntity
+class_name AttackModel extends FieldEntity
 
 signal struck(body)
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq7td47p5pc4i"]
 
-[ext_resource type="Script" path="res://scripts/FieldEntity.gd" id="1_anooc"]
-[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="2_xnhhi"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/classes/FieldEntity.gd" id="1_anooc"]
+[ext_resource type="Texture2D" uid="uid://davo07bg64euc" path="res://Ardor and the World Undone/Mancery/Assets/Intent.svg" id="2_oopye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
 
@@ -10,7 +10,7 @@ input_pickable = true
 script = ExtResource("1_anooc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_xnhhi")
+texture = ExtResource("2_oopye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3olpp")

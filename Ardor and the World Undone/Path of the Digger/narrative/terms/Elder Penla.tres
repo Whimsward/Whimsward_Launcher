@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_yxu0u"]
 
 [resource]
+resource_name = "Elder Penla"
 script = ExtResource("1_yxu0u")
-number = 0
-tag = "Term"
-subtitle = "Elder Penla"
-text = ""
-content = Array[ExtResource("1_yxu0u")]([])
+gloss = {
+"Tag": "Elder Penla",
+"Text": "The sole able-bodied Elder of Sixwell village at the time of the Digger's Walk. She has personally seen to the completion of the Sigils that will be provided to the boys, knowing that in the absence of an adult who can be spared to see the village safe, Will & Fenn will have to take the Rite of the Path on their own..."
+}

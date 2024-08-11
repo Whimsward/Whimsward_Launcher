@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://5tk24fporseg"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/Actor.gd" id="1_0h2i1"]
+[ext_resource type="Texture2D" uid="uid://davo07bg64euc" path="res://Ardor and the World Undone/Mancery/Assets/Intent.svg" id="2_bf8ln"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/HealthComponent.gd" id="3_gjv1n"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/MoveComponent.gd" id="4_kxsc3"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/UserInputComponent.gd" id="5_1kprh"]
+
+[node name="DriftingMote" type="CharacterBody2D" node_paths=PackedStringArray("hp", "dir", "go")]
+script = ExtResource("1_0h2i1")
+hp = NodePath("HealthComponent")
+dir = NodePath("UserInputComponent")
+go = NodePath("MoveComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bf8ln")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_gjv1n")
+max_health = 10
+current_health = 10
+thematic = Color(0.54902, 0, 0, 1)
+
+[node name="MoveComponent" type="Node" parent="."]
+script = ExtResource("4_kxsc3")
+acceleration = 10
+friction = 15
+max_speed = 200
+thematic = Color(0.175437, 0.484882, 0.447839, 1)
+
+[node name="UserInputComponent" type="Node" parent="."]
+script = ExtResource("5_1kprh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-36, -67.9, -36, -52.5, -31.9, -46.5, -25.4, -46.5, -5.4, -55.5, 1.7, -55.5, 10, -48.4, 10, -9.3, 30.2, -29.5, 32.4, -29.5, 44.4, -37.5, 50.8, -37.5, 61, -27.3, 61, -10.3, 59.1, -7.5, 55.9, -7.5, 41, -9.2, 37, -8, 37, -6.9, 35, -3.9, 35, 1.5, 45, 40.2, 45, 47, 37.2, 61.5, 35.8, 61.5, 28.8, 68.5, -8, 68.5, -8, 67.3, -16, 59.3, -16, 55.5, -17.2, 43.5, -15.1, 43.5, -8, 32.9, -8, 30.3, -37, 18.9, -37, 17.4, -43, 12.4, -43, 2.9, -32.1, -13.4, -53, -25.3, -53, -26.8, -61, -35.7, -61, -47.1, -46, -68.1, -37.8, -68.5)

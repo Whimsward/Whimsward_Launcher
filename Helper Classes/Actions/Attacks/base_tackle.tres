@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Tackle" load_steps=3 format=3 uid="uid://bkmtp2fpih681"]
+
+[ext_resource type="Script" path="res://Helper Classes/Actions/Attacks/attack_scripts/Tackle.gd" id="1_nn1x8"]
+[ext_resource type="Script" path="res://Helper Classes/Action.gd" id="2_hsm22"]
+
+[resource]
+script = ExtResource("1_nn1x8")
+name = ""
+valid_during = Array[ExtResource("2_hsm22")]([])
+base_duration = 0.0
+duration = 0.0

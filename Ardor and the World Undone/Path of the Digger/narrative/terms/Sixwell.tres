@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_cn2j0"]
 
 [resource]
+resource_name = "Sixwell"
 script = ExtResource("1_cn2j0")
-number = 0
-tag = ""
-subtitle = ""
-text = ""
-content = Array[ExtResource("1_cn2j0")]([])
+gloss = {
+"Tag": "Sixwell",
+"Text": "A Folk village that believes themselves to be descended from the wall-building Chosen, and whose unique mancery reflects that heritage.An unfortunate sequence of hardships has left the village with few able-bodied adults, though they hope to quickly recover if given a chance to get back on their feet."
+}

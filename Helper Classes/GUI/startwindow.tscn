@@ -6,4 +6,5 @@ title = "StartLauncher"
 [node name="Start" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
+focus_mode = 0
 text = "Start"

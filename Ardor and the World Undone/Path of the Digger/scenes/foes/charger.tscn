@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://dldfrlqp70syo"]
 
-[ext_resource type="Script" path="res://scripts/charger.gd" id="1_4ydpd"]
-[ext_resource type="PackedScene" uid="uid://dwy1xtg6pkyc5" path="res://scenes/attacks/attack.tscn" id="2_5qob6"]
-[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="3_rm4uh"]
-[ext_resource type="Script" path="res://scripts/HitBox.gd" id="4_4pg8t"]
-[ext_resource type="PackedScene" uid="uid://dupwhfviqcrps" path="res://scenes/components/health_component.tscn" id="5_tylss"]
-[ext_resource type="PackedScene" uid="uid://dhwqfj3ba3jbd" path="res://scenes/components/move_component.tscn" id="6_t4sc7"]
-[ext_resource type="PackedScene" uid="uid://bidjq35c01wxa" path="res://scenes/components/target_component.tscn" id="7_0bdme"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/scenes/foes/charger.gd" id="1_4ydpd"]
+[ext_resource type="PackedScene" uid="uid://dwy1xtg6pkyc5" path="res://Ardor and the World Undone/Path of the Digger/scenes/attacks/attack.tscn" id="2_5qob6"]
+[ext_resource type="Texture2D" uid="uid://ct57lpihog6n4" path="res://icon.svg" id="3_rm4uh"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/HitBox.gd" id="4_4pg8t"]
+[ext_resource type="PackedScene" uid="uid://dupwhfviqcrps" path="res://Ardor and the World Undone/Path of the Digger/scenes/components/health_component.tscn" id="5_tylss"]
+[ext_resource type="PackedScene" uid="uid://dhwqfj3ba3jbd" path="res://Ardor and the World Undone/Path of the Digger/scenes/components/move_component.tscn" id="6_t4sc7"]
+[ext_resource type="PackedScene" uid="uid://bidjq35c01wxa" path="res://Ardor and the World Undone/Path of the Digger/scenes/components/target_component.tscn" id="7_0bdme"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
 

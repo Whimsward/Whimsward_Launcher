@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Strike" load_steps=3 format=3 uid="uid://ds7qdadleyt4s"]
+
+[ext_resource type="Script" path="res://Helper Classes/Actions/Attacks/attack_scripts/Strike.gd" id="1_3bj26"]
+[ext_resource type="Script" path="res://Helper Classes/Action.gd" id="2_k3vo6"]
+
+[resource]
+script = ExtResource("1_3bj26")
+name = ""
+valid_during = Array[ExtResource("2_k3vo6")]([])
+base_duration = 0.0
+duration = 0.0

@@ -1,6 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhwqfj3ba3jbd"]
 
-[ext_resource type="Script" path="res://scripts/MoveComponent.gd" id="1_5r3mi"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/MoveComponent.gd" id="1_5r3mi"]
 
 [node name="MoveComponent" type="Node"]
 script = ExtResource("1_5r3mi")
+move_state = null
+vel = null
+direction = null
+acceleration = null
+friction = null
+max_speed = null
+jump_strength = null

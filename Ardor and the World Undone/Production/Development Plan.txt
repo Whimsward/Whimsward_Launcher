@@ -1,4 +1,7 @@
 1. Make it so Nav_Controls can instruct player movement.
+	- Encounter Resource has Instructions Resource. Instructs has move_to and functions
+		to manage tile traversal.
+	- Encounter Grid has functions to interact with Encounters.
 
 2. Get Phase transitions working.
 

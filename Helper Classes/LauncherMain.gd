@@ -16,7 +16,11 @@ func open(target : PackedScene):
 		current = next
 
 
-
+func swap_main_menu():
+	if main_menu.visible:
+		main_menu.hide()
+	elif not main_menu.visible:
+		main_menu.show()
 
 
 func _ready():
@@ -32,10 +36,10 @@ func _on_start_button_up():
 func _on_list_item_activated(list : ItemList,index : int):
 	var next
 	if list.get_item_text(index) == "run_potd":
-		next = open(game_reg.run_potd)
+		next = open(load(game_reg.games["Path of the Digger"]))
 	if list.get_item_text(index) == "run_hrw":
-		next = open(game_reg.run_hrw)
-	
+		next = open(game_reg.games["Half-Remembered Wood"])
+	swap_main_menu()
 	#var pane : ProjectTabs.Pane = list.get_parent()
 	#var path = pane.file_path
 	#var actuator : String = path+list.get_item_text(index)

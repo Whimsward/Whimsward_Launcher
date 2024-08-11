@@ -77,7 +77,6 @@ func _display_subdirectories(array : PackedStringArray = ProjectTabs.get_subdire
 
 
 func _on_pane_activated(list : ItemList,index : int):
-	print_debug(list," ",index)
 	activated.emit(list,index)
 
 
@@ -115,5 +114,3 @@ static func get_subdirectories(dir : String = "res://",validate : bool = false,i
 	else: return PackedStringArray(["No Valid Directory found"])
 
 #endregion
-
-

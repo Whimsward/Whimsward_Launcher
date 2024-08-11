@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwy1xtg6pkyc5"]
 
-[ext_resource type="Script" path="res://scripts/AttackEntity.gd" id="1_l75s5"]
-[ext_resource type="Texture2D" uid="uid://isvyloirsjd0" path="res://icon.svg" id="2_2x2ve"]
-[ext_resource type="Script" path="res://scripts/HitBox.gd" id="3_6nfnd"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/AttackEntity.gd" id="1_l75s5"]
+[ext_resource type="Texture2D" uid="uid://ct57lpihog6n4" path="res://icon.svg" id="2_2x2ve"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/HitBox.gd" id="3_6nfnd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3olpp"]
 radius = 9.22915

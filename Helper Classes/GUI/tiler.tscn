@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b5gy5wccbflsv"]
+
+[node name="Tiler" type="CenterContainer"]
+modulate = Color(1, 1, 1, 0.278431)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(0.12275, 0.421474, 0.486547, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+color = Color(0.380392, 0.533333, 0.458824, 0.784314)

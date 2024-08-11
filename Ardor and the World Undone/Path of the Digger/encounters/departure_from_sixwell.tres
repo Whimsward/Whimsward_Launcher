@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=13 format=3 uid="uid://c2jgrq14hwyx7"]
+
+[ext_resource type="Script" path="res://Helper Classes/Action.gd" id="1_k7bsx"]
+[ext_resource type="Script" path="res://Helper Classes/Instructions.gd" id="2_n377q"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="3_ja5jk"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="4_4phnx"]
+[ext_resource type="Script" path="res://Helper Classes/Character.gd" id="5_eqabh"]
+[ext_resource type="Resource" uid="uid://c4fr3shyaywn" path="res://Ardor and the World Undone/Production/Narrative/Characters/Fenn.tres" id="6_x6mbj"]
+[ext_resource type="Texture2D" uid="uid://ct57lpihog6n4" path="res://icon.svg" id="8_jmhyb"]
+[ext_resource type="Script" path="res://Helper Classes/Encounter.gd" id="9_w5hp4"]
+
+[sub_resource type="Resource" id="Resource_m6rsn"]
+script = ExtResource("2_n377q")
+has_recall = false
+movements = Array[Vector2i]([])
+actions = Array[ExtResource("1_k7bsx")]([])
+timespan = 0.0
+move_target = Vector2i(0, 0)
+current_tile = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_ov2gp"]
+script = ExtResource("4_4phnx")
+title = ""
+arguments = Array[ExtResource("3_ja5jk")]([])
+
+[sub_resource type="Resource" id="Resource_unmwf"]
+script = ExtResource("4_4phnx")
+title = ""
+arguments = Array[ExtResource("3_ja5jk")]([])
+
+[sub_resource type="Resource" id="Resource_xolcx"]
+resource_local_to_scene = true
+script = ExtResource("5_eqabh")
+name = &"Charger"
+id = 0
+bio = SubResource("Resource_unmwf")
+attributes = {}
+avatar = ExtResource("8_jmhyb")
+has_element = false
+has_alignment = false
+has_rite = false
+has_aspect = false
+has_medium = false
+elemental = null
+paradigmatic = null
+ritual = null
+aspect = null
+medium = null
+violation = 3
+walk = false
+run = false
+dash = false
+jump = false
+fly = false
+dodge = false
+mance = false
+interact = false
+shove = false
+climb = false
+attack = false
+
+[resource]
+script = ExtResource("9_w5hp4")
+description = SubResource("Resource_ov2gp")
+entities_on_field = Array[ExtResource("5_eqabh")]([ExtResource("6_x6mbj"), SubResource("Resource_xolcx")])
+map = {
+"Background": {},
+"Encounter": {},
+"Foreground": {},
+"Main": {}
+}
+current_instr = SubResource("Resource_m6rsn")

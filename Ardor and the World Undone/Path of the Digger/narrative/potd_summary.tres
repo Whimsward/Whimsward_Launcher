@@ -1,16 +1,11 @@
-[gd_resource type="Resource" script_class="Argument" load_steps=4 format=3 uid="uid://drbmj6hjpo6vd"]
+[gd_resource type="Resource" script_class="Argument" load_steps=2 format=3 uid="uid://drbmj6hjpo6vd"]
 
 [ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="1_hq28o"]
-[ext_resource type="Script" path="res://Ardor and the World Undone/Mancery/classes/Paradigm.gd" id="1_oy4qi"]
-
-[sub_resource type="Resource" id="Resource_utm5l"]
-script = ExtResource("1_oy4qi")
-aligned = 2
 
 [resource]
+resource_name = "Path of the Digger"
 script = ExtResource("1_hq28o")
-number = 1
-subtitle = "Departure from Sixwell"
-text = "Will & Fenn, having been bestowed with their [url]Sigil[/url]s by [url]Elder Penla[/url], race along the reverse-wake of reality left by the passing of [url]Sixwell[/url]'s [url]Digger[/url]. What trials will they face even before the Path carries them somewhere unexpected?"
-content = Array[ExtResource("1_hq28o")]([])
-alignment = SubResource("Resource_utm5l")
+gloss = {
+"Tag": "Departure From Sixwell",
+"Text": "Will & Fenn, having been bestowed with their [url]Sigil[/url]s by [url]Elder Penla[/url], race along the reverse-wake of reality left by the passing of [url]Sixwell[/url]'s [url]Digger[/url]. What trials will they face even before the Path carries them somewhere unexpected?"
+}

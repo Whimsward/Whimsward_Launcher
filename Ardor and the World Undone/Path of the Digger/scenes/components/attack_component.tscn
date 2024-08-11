@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://di3fbt85vsjxq"]
 
-[ext_resource type="Script" path="res://scripts/AttackComponent.gd" id="1_h4scm"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/AttackComponent.gd" id="1_h4scm"]
 
 [node name="AttackComponent" type="Node"]
 script = ExtResource("1_h4scm")

@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dupwhfviqcrps"]
 
-[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="1_prkv8"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Path of the Digger/components/HealthComponent.gd" id="1_prkv8"]
 
 [node name="HP" type="Node"]
 script = ExtResource("1_prkv8")
+max_health = 5
+current_health = 5

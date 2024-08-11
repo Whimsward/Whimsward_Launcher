@@ -1,0 +1,79 @@
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://bvh05yu7p4twu"]
+
+[ext_resource type="Texture2D" uid="uid://cnjrkyon5hjii" path="res://Ardor and the World Undone/Production/Art/Sprite sheet/WorldUndoneTileSetGrass,Barrens.png" id="1_c8ca0"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_2107i"]
+tile_data = PackedInt32Array(0, 196608, 0, 65536, 196608, 1, 131072, 196608, 1, 1, 262144, 0, 65537, 262144, 1, 131073, 262144, 1, 2, 262144, 0, 65538, 262144, 1, 131074, 262144, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_02ncl"]
+tile_data = PackedInt32Array(0, 262144, 805306369, 65536, 262144, 1342177281, 1, 262144, 1610612737, 65537, 262144, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_v7wn1"]
+tile_data = PackedInt32Array(0, 589824, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4w5o"]
+texture = ExtResource("1_c8ca0")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -0.265165, 4.33103, -3.8007, -1.14905, -0.972272, -0.795495, 6.45235, -0.0883875, 8, 8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.441941, 8, -0.972272, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.67938, 1.5026, -1.32583, 3.44715, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.795496, -8, -2.03293, -2.03293, -1.32582, 8, 8, 8, 8, -8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.09359, -8, 0.795496, 6.45235, -8, 8, -8, -8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.67938, 3.44715, 8, 2.03293, 8, -8, -3.09359, -8, -3.09359, -2.03293)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.265165, 8, -0.795495, 8, -8, -8, -8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.441941, 0.441942, 0.0883884, 3.09359, -8, -8, -8)
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+8:1/0 = 0
+8:2/0 = 0
+7:2/0 = 0
+6:2/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+9:1/size_in_atlas = Vector2i(1, 2)
+9:1/0 = 0
+10:1/size_in_atlas = Vector2i(1, 2)
+10:1/0 = 0
+11:1/size_in_atlas = Vector2i(1, 2)
+11:1/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 7
+custom_data_layer_0/name = "Char_ID"
+custom_data_layer_0/type = 2
+sources/0 = SubResource("TileSetAtlasSource_g4w5o")
+pattern_0 = SubResource("TileMapPattern_2107i")
+pattern_1 = SubResource("TileMapPattern_02ncl")
+pattern_2 = SubResource("TileMapPattern_v7wn1")

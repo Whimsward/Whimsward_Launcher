@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3a8c2bf2vpk5"]
+
+[ext_resource type="PackedScene" uid="uid://bf1wg12aof1xb" path="res://Helper Classes/GUI/thesis_recitation.tscn" id="1_i70ts"]
+[ext_resource type="PackedScene" uid="uid://brns7a3kd213g" path="res://Helper Classes/encounter_screen.tscn" id="2_4kjp1"]
+
+[node name="MenuTabs" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="ThesisView" parent="." instance=ExtResource("1_i70ts")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="EncounterScreen" parent="." instance=ExtResource("2_4kjp1")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

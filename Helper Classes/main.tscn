@@ -7,6 +7,58 @@
 
 [sub_resource type="Resource" id="Resource_ekbc2"]
 script = ExtResource("2_45ub6")
+games = {
+"DOM": "res://DOM/dom_edit.tscn",
+"Half-Remembered Wood": "res://Ardor and the World Undone/The Half-Remembered Wood/run_hrw.tscn",
+"Path of the Digger": "res://Ardor and the World Undone/Path of the Digger/run_potd.tscn",
+"Twenty Games": {
+"Game 1": {
+"Flappy Bird": "",
+"Pong": ""
+},
+"Game 10": {
+"Minecraft": "",
+"Portal": ""
+},
+"Game 2": {
+"Breakout": "",
+"Jetpack Joyride": ""
+},
+"Game 3": {
+"Frogger": "",
+"River Raid": "",
+"Space Invaders": ""
+},
+"Game 4": {
+"Asteroids": "",
+"Indy 500": "",
+"Spacewar!": ""
+},
+"Game 5": {
+"Conway's Game of Life": "",
+"Pac Man": "",
+"Tic-Tac-Toe": ""
+},
+"Game 6": {
+"Pitfall": "",
+"Super Mario Bros.": "",
+"VVVVVV": ""
+},
+"Game 7": {
+"Dig Dug": "",
+"Worms": ""
+},
+"Game 8": {
+"Crash Bandicoot": "",
+"Star Fox": "",
+"Super Monkey Ball": ""
+},
+"Game 9": {
+"Mario Kart": "",
+"Wolfenstein or Doom": ""
+}
+}
+}
 
 [node name="Main" type="Node"]
 script = ExtResource("1_slag2")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://cm7lstr2bygug"]
+
+[ext_resource type="Script" path="res://Helper Classes/Attribute.gd" id="1_3ay7y"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "Speed"
+script = ExtResource("1_3ay7y")
+name = &"Speed"
+theme_color = Color(0.78708, 0.84, 0.3864, 1)
+score = 3

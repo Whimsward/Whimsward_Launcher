@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="Character" load_steps=8 format=3 uid="uid://c4fr3shyaywn"]
+
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Argument.gd" id="2_hxo7m"]
+[ext_resource type="Script" path="res://Ardor and the World Undone/Production/Classes/Thesis.gd" id="3_gnqh1"]
+[ext_resource type="Script" path="res://Helper Classes/Action.gd" id="4_c7vn3"]
+[ext_resource type="Script" path="res://Helper Classes/Character.gd" id="4_o5h0m"]
+[ext_resource type="Script" path="res://Helper Classes/Instructions.gd" id="5_wmcrg"]
+
+[sub_resource type="Resource" id="Resource_b5pxr"]
+script = ExtResource("3_gnqh1")
+title = ""
+arguments = Array[ExtResource("2_hxo7m")]([])
+
+[sub_resource type="Resource" id="Resource_tnmtm"]
+script = ExtResource("5_wmcrg")
+has_recall = false
+movements = Array[Vector2i]([])
+actions = Array[ExtResource("4_c7vn3")]([])
+timespan = 0.0
+move_target = Vector2i(0, 0)
+current_tile = Vector2i(0, 0)
+
+[resource]
+script = ExtResource("4_o5h0m")
+name = &"Fenn"
+id = 3
+bio = SubResource("Resource_b5pxr")
+attributes = {}
+instr = SubResource("Resource_tnmtm")
+has_element = false
+has_alignment = false
+has_rite = false
+has_aspect = false
+has_medium = false
+elemental = null
+paradigmatic = null
+ritual = null
+aspect = null
+medium = null
+violation = null
+walk = false
+run = false
+dash = false
+jump = false
+fly = false
+dodge = false
+mance = false
+interact = false
+shove = false
+climb = false
+attack = false

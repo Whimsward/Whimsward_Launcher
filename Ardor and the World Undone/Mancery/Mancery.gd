@@ -1,4 +1,4 @@
-class_name Mance extends Node2D
+class_name Mancery extends Node2D
 ##Module Head for Entities to interact with Mana
 
 signal vented(amt : float)
@@ -101,4 +101,3 @@ func _on_channel_type_shifted():
 	print_debug("Received channel type shift signal")
 	reset_channels()
 #endregion
-

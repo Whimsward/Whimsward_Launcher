@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://brns7a3kd213g"]
+
+[ext_resource type="Texture2D" uid="uid://ckjg8v26j72mb" path="res://Ardor and the World Undone/Production/Art/Icons/Simple Ardor Run.png" id="1_6wnrp"]
+[ext_resource type="Script" path="res://Helper Classes/encounter_screen.gd" id="1_cl5s8"]
+[ext_resource type="Texture2D" uid="uid://cvqqhxrdru7er" path="res://Ardor and the World Undone/Path of the Digger/scenes/attacks/slash.svg" id="2_rqenu"]
+[ext_resource type="Texture2D" uid="uid://davo07bg64euc" path="res://Ardor and the World Undone/Mancery/Assets/Intent.svg" id="3_hgoaa"]
+[ext_resource type="Texture2D" uid="uid://d4fyr0kl7wkwf" path="res://Ardor and the World Undone/Production/Art/Icons/IsoTree.png" id="5_i8d0u"]
+
+[node name="EncounterScreen" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 67.0
+grow_horizontal = 2
+size_flags_vertical = 0
+script = ExtResource("1_cl5s8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="MoveButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Move"
+icon = ExtResource("1_6wnrp")
+icon_alignment = 1
+
+[node name="ActHead" type="MenuButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Act"
+icon = ExtResource("2_rqenu")
+flat = false
+icon_alignment = 1
+expand_icon = true
+switch_on_hover = true
+item_count = 5
+popup/item_0/text = "Hex"
+popup/item_0/disabled = true
+popup/item_1/text = "Shoot"
+popup/item_1/id = 1
+popup/item_2/text = "Strike"
+popup/item_2/id = 2
+popup/item_3/text = "Dash"
+popup/item_3/id = 3
+popup/item_4/text = "Slash"
+popup/item_4/id = 4
+
+[node name="ManceHead" type="MenuButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Mance"
+icon = ExtResource("3_hgoaa")
+flat = false
+icon_alignment = 1
+expand_icon = true
+switch_on_hover = true
+item_count = 5
+popup/item_0/text = "Apply"
+popup/item_1/text = "Prepare"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/text = "Enact"
+popup/item_2/id = 2
+popup/item_3/text = "Sustain"
+popup/item_3/id = 3
+popup/item_3/disabled = true
+popup/item_4/text = "Deny"
+popup/item_4/id = 4
+popup/item_4/disabled = true
+
+[node name="EndMoveButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+text = "End Move"
+icon = ExtResource("1_6wnrp")
+icon_alignment = 1
+
+[node name="ExecuteButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Execute"
+icon = ExtResource("5_i8d0u")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+auto_height = true
+max_columns = 10
+
+[node name="HoveredTileLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/MoveButton" to="." method="_on_move_button_button_up"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/MoveButton" to="." method="_on_move_button_gui_input"]
+[connection signal="about_to_popup" from="VBoxContainer/HBoxContainer/ActHead" to="." method="_on_act_head_about_to_popup"]
+[connection signal="about_to_popup" from="VBoxContainer/HBoxContainer/ManceHead" to="." method="_on_mance_head_about_to_popup"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/EndMoveButton" to="." method="_on_end_move_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/ExecuteButton" to="." method="_on_execute_button_button_up"]

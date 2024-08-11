@@ -1,45 +1,29 @@
 class_name Argument extends Resource
 ##Punched out from Thesis because it's not instantiating as a subclass.
 
-@export var number : int
-@export var subtitle : String #use for heading titles or very simple content
-@export_multiline var text : String #use for initial description or internal paragraphs
-@export var content : Array[Argument] #allows for nesting subarguments
-@export var alignment : Alignment
+
+@export_multiline var gloss : Dictionary = {
+	"Tag" : "Element",
+	"Text" : "Contents"}
 
 
-func amend(txt : String, variant):
-	if variant == subtitle:
-		subtitle = txt
-	if variant == text:
-		text = txt
+##Static function to express a Dictionary as Label and LineEdit Controls using visualize.
+static func compel_recitation(dict : Dictionary,target : Control):
+	var redict = dict.duplicate()
+	for e in redict:
+		if redict[e] is Dictionary:
+			var edict = redict[e]
+			for key in edict:
+				Argument.visualize(key,edict[key],target)
+		else: Argument.visualize(e,redict[e],target)
 
 
-func refer(ref : String):
-	if ref in subtitle:
-		if text:
-			return text
-		else:
-			return self
-	else: return null
-
-
-func deep_dive(ref : String):
-	for A in content:
-		if A.refer(ref):
-			return A
-		else:
-			return null #consider Argument.new()
-
-
-func get_alignment(arg : Argument = self):
-	print_debug(Alignment.confess(arg.alignment.aligned))
-	var para = Alignment.track_alignment(arg.alignment.aligned)
-	return para
-
-
-func debate():
-	var align_array = [alignment.aligned]
-	for A in content:
-		align_array.append(get_alignment(A))
-	return align_array
+##Static function to express a key:value pair as a Label and LineEdit.
+static func visualize(key : String, value : String, target : Control):
+	var label = Label.new()
+	var edit = LineEdit.new()
+	label.text = key
+	target.add_child(label)
+	edit.placeholder_text = value
+	edit.expand_to_text_length = true
+	target.add_child(edit)

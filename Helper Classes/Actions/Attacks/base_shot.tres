@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Shot" load_steps=3 format=3 uid="uid://7ullfooe1gad"]
+
+[ext_resource type="Script" path="res://Helper Classes/Actions/Attacks/attack_scripts/Shot.gd" id="1_wfyho"]
+[ext_resource type="Script" path="res://Helper Classes/Action.gd" id="2_m4tgc"]
+
+[resource]
+script = ExtResource("1_wfyho")
+name = ""
+valid_during = Array[ExtResource("2_m4tgc")]([])
+base_duration = 0.0
+duration = 0.0
